@@ -1,13 +1,9 @@
-<!doctype html>
-<html>
-  <head>
-    {% if title %}
-    <title>{{ title }} - YadiBlog</title>
-    {% else %}
-    <title>Wellcom - YadiBlog</title>
-    {% endif %}
-  </head>
-  <body>
-    <h1>Hello, {{ user.username }}!</h1>
-  </body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>HI, {{ user.username }}!</h1>
+    {% for post in posts %}
+    <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
+    {% endfor %}
+{% endblock %}
+    
